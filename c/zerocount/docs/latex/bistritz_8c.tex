@@ -1,0 +1,332 @@
+\hypertarget{bistritz_8c}{}\section{bistritz.\+c File Reference}
+\label{bistritz_8c}\index{bistritz.c@{bistritz.c}}
+
+
+source code for Bistritz\+\_\+rule and auxiliary functions  
+
+
+{\ttfamily \#include \char`\"{}flint/flint.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}flint/fmpz.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}flint/fmpq.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}flint/fmpq\+\_\+poly.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+slong \mbox{\hyperlink{bistritz_8c_a69fb049cdc47f06f6a700dedb019c2c9}{get\+\_\+lambda}} (const fmpq\+\_\+poly\+\_\+t poly)
+\begin{DoxyCompactList}\small\item\em Returns the index of lowest non-\/zero term;. \end{DoxyCompactList}\item 
+const fmpz $\ast$ \mbox{\hyperlink{bistritz_8c_a548f5703cb4e36372f8d47c381007994}{get\+\_\+coeff\+\_\+numref}} (const fmpq\+\_\+poly\+\_\+t poly, const fmpz\+\_\+t const\+\_\+null, const slong n)
+\begin{DoxyCompactList}\small\item\em Returns reference to numerator of n-\/th coefficient or 0 if index n is out of range. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bistritz_8c_ad4f260f914469ff1b8cb24aac32fd047}{get\+\_\+coeff}} (fmpq\+\_\+t coeff, const fmpq\+\_\+poly\+\_\+t poly, const slong n)
+\begin{DoxyCompactList}\small\item\em Returns n-\/th coefficient of poly or 0 if index n is out of range. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bistritz_8c_a21ca22e6df635f27603116e1689fbcd4}{get\+\_\+delta}} (fmpq\+\_\+t delta, const fmpq\+\_\+poly\+\_\+t T\+\_\+prev, const fmpq\+\_\+poly\+\_\+t T\+\_\+curr)
+\begin{DoxyCompactList}\small\item\em Calculates delta coefficient for the three-\/term recursion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bistritz_8c_aec739005e4452bd18e2611f3c42080bd}{div\+\_\+x\+\_\+minus\+\_\+1\+\_\+asym}} (fmpq\+\_\+poly\+\_\+t res, const fmpq\+\_\+poly\+\_\+t poly)
+\begin{DoxyCompactList}\small\item\em Divides antisymmetric P(x) (P$\ast$=-\/P) by (x-\/1) in Q\mbox{[}x\mbox{]}, returns quotient. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bistritz_8c_a6a5d65b06fef70ec6526bf54ab2518f4}{eval\+\_\+at\+\_\+1\+\_\+sym}} (fmpq\+\_\+t val, const fmpq\+\_\+poly\+\_\+t poly)
+\begin{DoxyCompactList}\small\item\em Evaluates formaly-\/symmetric polynomial at x=1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bistritz_8c_aa1c3cc765eb0e2b71d7f3577ec66c046}{clear\+\_\+x\+\_\+minus\+\_\+1}} (slong $\ast$count, fmpq\+\_\+poly\+\_\+t poly)
+\begin{DoxyCompactList}\small\item\em Repeatedly divides P(x) by (x-\/1) until P(-\/1)$<$$>$0, returns quotient. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bistritz_8c_a52c6d0660a092928a2bc314e57270136}{rule\+\_\+init}} (fmpq\+\_\+poly\+\_\+t T1, fmpq\+\_\+poly\+\_\+t T2, fmpq\+\_\+t sigma1, fmpq\+\_\+t sigma2, const fmpq\+\_\+poly\+\_\+t D)
+\begin{DoxyCompactList}\small\item\em Initializes polynomials T1, T2 and their signs at x=1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bistritz_8c_ad17b20e64b376242912269d3270ac337}{print\+\_\+\+T\+\_\+data}} (slong n, fmpq\+\_\+poly\+\_\+t T, fmpq\+\_\+t sigma)
+\begin{DoxyCompactList}\small\item\em Debuging function; prints the recursion data to the stdout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bistritz_8c_a83451a1357feb4b01a1f41e2ca85cf54}{do\+\_\+singular}} (fmpq\+\_\+poly\+\_\+t T1, fmpq\+\_\+poly\+\_\+t T2, fmpq\+\_\+poly\+\_\+t T3, fmpq\+\_\+t sigma1, fmpq\+\_\+t sigma2, fmpq\+\_\+t sigma3)
+\begin{DoxyCompactList}\small\item\em Re-\/initializes polynomials T2, T3 and their signs at x=1 in singular cases. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bistritz_8c_a444b3f4facb54e29a3f12ef74b88bb40}{do\+\_\+recurence}} (fmpq\+\_\+poly\+\_\+t T3, fmpq\+\_\+t sigma3, fmpq\+\_\+t delta, const fmpz\+\_\+t fmpz\+\_\+const\+\_\+null, const fmpq\+\_\+poly\+\_\+t T1, const fmpq\+\_\+poly\+\_\+t T2, const fmpq\+\_\+t sigma1, const fmpq\+\_\+t sigma2, const slong flength)
+\begin{DoxyCompactList}\small\item\em Calculates next polynomial T3 in regular recursion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bistritz_8c_abac08110815e4b854dc83dd15f914fd6}{Bistritz\+\_\+rule}} (slong $\ast$in\+\_\+uc, slong $\ast$on\+\_\+uc, const fmpq\+\_\+poly\+\_\+t poly)
+\begin{DoxyCompactList}\small\item\em Zero counting procedure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+source code for Bistritz\+\_\+rule and auxiliary functions 
+
+\begin{DoxyAuthor}{Author}
+Jonas Jankauskas 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 22, 2019 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyNote}{Note}
+F\+L\+I\+NT version 2.\+5.\+2
+\end{DoxyNote}
+Contains the source code of the Bistritz algorithm, together with routines that perform calculations symmetric polynomials (saving about half of computational time) and 3-\/term Bistritz recurrence formula. Reasonable attempt to optimize the code for the speed was made without compromising the code readability. The program is implemented via F\+L\+I\+NT. F\+L\+I\+NT conventions are followed where possible\+: each function returns its result via the 1st argument. It is assumed that function arguments are initialized by user by appropriate F\+L\+I\+NT initialization routines before the call. Unless the variable is declared const, users must assume that the function will modify the contents of that variable. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{bistritz_8c_abac08110815e4b854dc83dd15f914fd6}\label{bistritz_8c_abac08110815e4b854dc83dd15f914fd6}} 
+\index{bistritz.c@{bistritz.c}!Bistritz\_rule@{Bistritz\_rule}}
+\index{Bistritz\_rule@{Bistritz\_rule}!bistritz.c@{bistritz.c}}
+\subsubsection{\texorpdfstring{Bistritz\_rule()}{Bistritz\_rule()}}
+{\footnotesize\ttfamily void Bistritz\+\_\+rule (\begin{DoxyParamCaption}\item[{slong $\ast$}]{in\+\_\+uc,  }\item[{slong $\ast$}]{on\+\_\+uc,  }\item[{const fmpq\+\_\+poly\+\_\+t}]{poly }\end{DoxyParamCaption})}
+
+
+
+Zero counting procedure. 
+
+If poly $<$$>$ 0, returns no. of complex zeros of poly inside $\vert$z$\vert$ $<$ 1 and on $\vert$z$\vert$ = 1 through $\ast$in\+\_\+uc and $\ast$on\+\_\+uc. If poly == 0, stores the pair of numbers -\/1, 0. 
+\begin{DoxyParams}{Parameters}
+{\em poly} & -\/ F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type rational polynomial (must be initialized before the call) \\
+\hline
+{\em in\+\_\+uc} & -\/ pointer to F\+L\+I\+NT slong, no. of complex zeros inside unit circle $\vert$z$\vert$$<$1 \\
+\hline
+{\em on\+\_\+uc} & -\/ pointer to F\+L\+I\+NT slong, no. of complex zeros on unit circle $\vert$z$\vert$=1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+results are returned through in\+\_\+uc, on\+\_\+uc variables 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bistritz_8c_aa1c3cc765eb0e2b71d7f3577ec66c046}\label{bistritz_8c_aa1c3cc765eb0e2b71d7f3577ec66c046}} 
+\index{bistritz.c@{bistritz.c}!clear\_x\_minus\_1@{clear\_x\_minus\_1}}
+\index{clear\_x\_minus\_1@{clear\_x\_minus\_1}!bistritz.c@{bistritz.c}}
+\subsubsection{\texorpdfstring{clear\_x\_minus\_1()}{clear\_x\_minus\_1()}}
+{\footnotesize\ttfamily void clear\+\_\+x\+\_\+minus\+\_\+1 (\begin{DoxyParamCaption}\item[{slong $\ast$}]{count,  }\item[{fmpq\+\_\+poly\+\_\+t}]{poly }\end{DoxyParamCaption})}
+
+
+
+Repeatedly divides P(x) by (x-\/1) until P(-\/1)$<$$>$0, returns quotient. 
+
+Quotient polynomial is obtained by a Horner-\/like evaluation at x=1 
+\begin{DoxyParams}{Parameters}
+{\em count} & -\/ multiplicity of root x=1 in P(x). If P(x)=0, 0 is returned. \\
+\hline
+{\em poly} & -\/ F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type rational polynomial \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result is returned in count 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bistritz_8c_aec739005e4452bd18e2611f3c42080bd}\label{bistritz_8c_aec739005e4452bd18e2611f3c42080bd}} 
+\index{bistritz.c@{bistritz.c}!div\_x\_minus\_1\_asym@{div\_x\_minus\_1\_asym}}
+\index{div\_x\_minus\_1\_asym@{div\_x\_minus\_1\_asym}!bistritz.c@{bistritz.c}}
+\subsubsection{\texorpdfstring{div\_x\_minus\_1\_asym()}{div\_x\_minus\_1\_asym()}}
+{\footnotesize\ttfamily void div\+\_\+x\+\_\+minus\+\_\+1\+\_\+asym (\begin{DoxyParamCaption}\item[{fmpq\+\_\+poly\+\_\+t}]{res,  }\item[{const fmpq\+\_\+poly\+\_\+t}]{poly }\end{DoxyParamCaption})}
+
+
+
+Divides antisymmetric P(x) (P$\ast$=-\/P) by (x-\/1) in Q\mbox{[}x\mbox{]}, returns quotient. 
+
+Horner evaluation at 1 and exploitation of negative-\/symmetry 
+\begin{DoxyParams}{Parameters}
+{\em res} & -\/ quotient polynomial, F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type \\
+\hline
+{\em poly} & -\/ rational polynomial that is to be divided, F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result is returned in res 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bistritz_8c_a444b3f4facb54e29a3f12ef74b88bb40}\label{bistritz_8c_a444b3f4facb54e29a3f12ef74b88bb40}} 
+\index{bistritz.c@{bistritz.c}!do\_recurence@{do\_recurence}}
+\index{do\_recurence@{do\_recurence}!bistritz.c@{bistritz.c}}
+\subsubsection{\texorpdfstring{do\_recurence()}{do\_recurence()}}
+{\footnotesize\ttfamily void do\+\_\+recurence (\begin{DoxyParamCaption}\item[{fmpq\+\_\+poly\+\_\+t}]{T3,  }\item[{fmpq\+\_\+t}]{sigma3,  }\item[{fmpq\+\_\+t}]{delta,  }\item[{const fmpz\+\_\+t}]{fmpz\+\_\+const\+\_\+null,  }\item[{const fmpq\+\_\+poly\+\_\+t}]{T1,  }\item[{const fmpq\+\_\+poly\+\_\+t}]{T2,  }\item[{const fmpq\+\_\+t}]{sigma1,  }\item[{const fmpq\+\_\+t}]{sigma2,  }\item[{const slong}]{flength }\end{DoxyParamCaption})}
+
+
+
+Calculates next polynomial T3 in regular recursion. 
+
+T3 = delta$\ast$(z$^\wedge$(2$\ast$lambda+1)+1)$\ast$\+T\+\_\+2$\ast$z$^\wedge$(-\/lambda) -\/ T1 
+\begin{DoxyParams}{Parameters}
+{\em T3} & -\/ new polynomial of the recurrence, F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type \\
+\hline
+{\em sigma3} & -\/ sign of next polynomial T3 at x=1, fmpq\+\_\+t type rational number \\
+\hline
+{\em delta} & -\/ placeholder for the recursion coefficient \\
+\hline
+{\em fmpz\+\_\+const\+\_\+null} & -\/ fmpz\+\_\+t placeholder for \textquotesingle{}0\textquotesingle{} \\
+\hline
+{\em T1} & -\/ pre-\/previous polynomial of the recurrence, F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type \\
+\hline
+{\em T2} & -\/ previous polynomial of the recurrence, F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type \\
+\hline
+{\em sigma1} & -\/ sign of T1 at x=1, fmpq\+\_\+t type rational number \\
+\hline
+{\em sigma2} & -\/ sign of T2 at x=1, fmpq\+\_\+t type rational number \\
+\hline
+{\em flength} & -\/ F\+L\+I\+NT slong (formal) symmetrical length of the next polynomial, used in \#-\/operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+results are stored in T3, sigma3, delta 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bistritz_8c_a83451a1357feb4b01a1f41e2ca85cf54}\label{bistritz_8c_a83451a1357feb4b01a1f41e2ca85cf54}} 
+\index{bistritz.c@{bistritz.c}!do\_singular@{do\_singular}}
+\index{do\_singular@{do\_singular}!bistritz.c@{bistritz.c}}
+\subsubsection{\texorpdfstring{do\_singular()}{do\_singular()}}
+{\footnotesize\ttfamily void do\+\_\+singular (\begin{DoxyParamCaption}\item[{fmpq\+\_\+poly\+\_\+t}]{T1,  }\item[{fmpq\+\_\+poly\+\_\+t}]{T2,  }\item[{fmpq\+\_\+poly\+\_\+t}]{T3,  }\item[{fmpq\+\_\+t}]{sigma1,  }\item[{fmpq\+\_\+t}]{sigma2,  }\item[{fmpq\+\_\+t}]{sigma3 }\end{DoxyParamCaption})}
+
+
+
+Re-\/initializes polynomials T2, T3 and their signs at x=1 in singular cases. 
+
+D = T1\textquotesingle{}, T2 = (D+\+D$\ast$), T3 = -\/(D-\/\+D$\ast$)/(z-\/1), sigma1 = sgn(\+T1(1)), sigma2 = sgn(\+T2(1)), sigma3 = sgn(\+T3(1)) 
+\begin{DoxyParams}{Parameters}
+{\em T1} & -\/ first polynomial of the recurrence, F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type; used as aplaceholder for T1\textquotesingle{} \\
+\hline
+{\em T2} & -\/ second polynomial of the recurrence, F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type \\
+\hline
+{\em T3} & -\/ third polynomial of the recurrence, F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type \\
+\hline
+{\em sigma1} & -\/ sign of T1 at x=1, fmpq\+\_\+t type rational number \\
+\hline
+{\em sigma2} & -\/ sign of T2 at x=1, fmpq\+\_\+t type rational number \\
+\hline
+{\em sigma3} & -\/ sign of T3 at x=1, fmpq\+\_\+t type rational number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+results are stored in T1, T2, T3, sigma1, sigma2, sigma3 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bistritz_8c_a6a5d65b06fef70ec6526bf54ab2518f4}\label{bistritz_8c_a6a5d65b06fef70ec6526bf54ab2518f4}} 
+\index{bistritz.c@{bistritz.c}!eval\_at\_1\_sym@{eval\_at\_1\_sym}}
+\index{eval\_at\_1\_sym@{eval\_at\_1\_sym}!bistritz.c@{bistritz.c}}
+\subsubsection{\texorpdfstring{eval\_at\_1\_sym()}{eval\_at\_1\_sym()}}
+{\footnotesize\ttfamily void eval\+\_\+at\+\_\+1\+\_\+sym (\begin{DoxyParamCaption}\item[{fmpq\+\_\+t}]{val,  }\item[{const fmpq\+\_\+poly\+\_\+t}]{poly }\end{DoxyParamCaption})}
+
+
+
+Evaluates formaly-\/symmetric polynomial at x=1. 
+
+Uses Horner evaluation at 1 and symmetry of P 
+\begin{DoxyParams}{Parameters}
+{\em val} & -\/ the computed F\+L\+I\+NT fmpq\+\_\+t value P(1) \\
+\hline
+{\em poly} & -\/ rational polynomial of F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result is returned in val 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bistritz_8c_ad4f260f914469ff1b8cb24aac32fd047}\label{bistritz_8c_ad4f260f914469ff1b8cb24aac32fd047}} 
+\index{bistritz.c@{bistritz.c}!get\_coeff@{get\_coeff}}
+\index{get\_coeff@{get\_coeff}!bistritz.c@{bistritz.c}}
+\subsubsection{\texorpdfstring{get\_coeff()}{get\_coeff()}}
+{\footnotesize\ttfamily void get\+\_\+coeff (\begin{DoxyParamCaption}\item[{fmpq\+\_\+t}]{coeff,  }\item[{const fmpq\+\_\+poly\+\_\+t}]{poly,  }\item[{const slong}]{n }\end{DoxyParamCaption})}
+
+
+
+Returns n-\/th coefficient of poly or 0 if index n is out of range. 
+
+Same as fmpq\+\_\+poly\+\_\+get\+\_\+coeff\+\_\+fmpq with a check for negative n 
+\begin{DoxyParams}{Parameters}
+{\em coeff} & -\/ F\+L\+I\+NT fmpq\+\_\+t type rational coefficient \\
+\hline
+{\em poly} & -\/ F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type rational polynomial \\
+\hline
+{\em n} & -\/ F\+L\+I\+NT slong type index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result is returned in coeff 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bistritz_8c_a548f5703cb4e36372f8d47c381007994}\label{bistritz_8c_a548f5703cb4e36372f8d47c381007994}} 
+\index{bistritz.c@{bistritz.c}!get\_coeff\_numref@{get\_coeff\_numref}}
+\index{get\_coeff\_numref@{get\_coeff\_numref}!bistritz.c@{bistritz.c}}
+\subsubsection{\texorpdfstring{get\_coeff\_numref()}{get\_coeff\_numref()}}
+{\footnotesize\ttfamily const fmpz$\ast$ get\+\_\+coeff\+\_\+numref (\begin{DoxyParamCaption}\item[{const fmpq\+\_\+poly\+\_\+t}]{poly,  }\item[{const fmpz\+\_\+t}]{const\+\_\+null,  }\item[{const slong}]{n }\end{DoxyParamCaption})}
+
+
+
+Returns reference to numerator of n-\/th coefficient or 0 if index n is out of range. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poly} & -\/ F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type rational polynomial \\
+\hline
+{\em n} & -\/ F\+L\+I\+NT slong type index \\
+\hline
+{\em const\+\_\+null} & -\/ a reference to the F\+L\+I\+NT fmpz\+\_\+t variable that contains 0 constant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference to the numerator of n-\/th coefficient of poly as a pointer to F\+L\+I\+NT fmpz 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bistritz_8c_a21ca22e6df635f27603116e1689fbcd4}\label{bistritz_8c_a21ca22e6df635f27603116e1689fbcd4}} 
+\index{bistritz.c@{bistritz.c}!get\_delta@{get\_delta}}
+\index{get\_delta@{get\_delta}!bistritz.c@{bistritz.c}}
+\subsubsection{\texorpdfstring{get\_delta()}{get\_delta()}}
+{\footnotesize\ttfamily void get\+\_\+delta (\begin{DoxyParamCaption}\item[{fmpq\+\_\+t}]{delta,  }\item[{const fmpq\+\_\+poly\+\_\+t}]{T\+\_\+prev,  }\item[{const fmpq\+\_\+poly\+\_\+t}]{T\+\_\+curr }\end{DoxyParamCaption})}
+
+
+
+Calculates delta coefficient for the three-\/term recursion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & -\/ recursion coefficient, F\+L\+I\+NT fmpq\+\_\+t type \\
+\hline
+{\em T\+\_\+prev} & -\/ previous polynomial in the recursion, F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type. \\
+\hline
+{\em T\+\_\+curr} & -\/ current polynomial in the recursion, F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result is returned in delta 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bistritz_8c_a69fb049cdc47f06f6a700dedb019c2c9}\label{bistritz_8c_a69fb049cdc47f06f6a700dedb019c2c9}} 
+\index{bistritz.c@{bistritz.c}!get\_lambda@{get\_lambda}}
+\index{get\_lambda@{get\_lambda}!bistritz.c@{bistritz.c}}
+\subsubsection{\texorpdfstring{get\_lambda()}{get\_lambda()}}
+{\footnotesize\ttfamily slong get\+\_\+lambda (\begin{DoxyParamCaption}\item[{const fmpq\+\_\+poly\+\_\+t}]{poly }\end{DoxyParamCaption})}
+
+
+
+Returns the index of lowest non-\/zero term;. 
+
+0 if poly = 0 
+\begin{DoxyParams}{Parameters}
+{\em poly} & F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type rational polynomial \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+F\+L\+I\+NT slong type that is equal to index of first non-\/zero term in poly 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bistritz_8c_ad17b20e64b376242912269d3270ac337}\label{bistritz_8c_ad17b20e64b376242912269d3270ac337}} 
+\index{bistritz.c@{bistritz.c}!print\_T\_data@{print\_T\_data}}
+\index{print\_T\_data@{print\_T\_data}!bistritz.c@{bistritz.c}}
+\subsubsection{\texorpdfstring{print\_T\_data()}{print\_T\_data()}}
+{\footnotesize\ttfamily void print\+\_\+\+T\+\_\+data (\begin{DoxyParamCaption}\item[{slong}]{n,  }\item[{fmpq\+\_\+poly\+\_\+t}]{T,  }\item[{fmpq\+\_\+t}]{sigma }\end{DoxyParamCaption})}
+
+
+
+Debuging function; prints the recursion data to the stdout. 
+
+Prints n-\/th Polynomial T\+\_\+n, lambda value of T\+\_\+n and sigma=sgn(\+Tn(1)) 
+\begin{DoxyParams}{Parameters}
+{\em n} & -\/ F\+L\+I\+NT slong index of a sequence member \\
+\hline
+{\em T} & -\/ n-\/th polynomial of the recurrence, F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type \\
+\hline
+{\em sigma} & -\/ sign of T\+\_\+n at x=1, fmpq\+\_\+t type rational number \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bistritz_8c_a52c6d0660a092928a2bc314e57270136}\label{bistritz_8c_a52c6d0660a092928a2bc314e57270136}} 
+\index{bistritz.c@{bistritz.c}!rule\_init@{rule\_init}}
+\index{rule\_init@{rule\_init}!bistritz.c@{bistritz.c}}
+\subsubsection{\texorpdfstring{rule\_init()}{rule\_init()}}
+{\footnotesize\ttfamily void rule\+\_\+init (\begin{DoxyParamCaption}\item[{fmpq\+\_\+poly\+\_\+t}]{T1,  }\item[{fmpq\+\_\+poly\+\_\+t}]{T2,  }\item[{fmpq\+\_\+t}]{sigma1,  }\item[{fmpq\+\_\+t}]{sigma2,  }\item[{const fmpq\+\_\+poly\+\_\+t}]{D }\end{DoxyParamCaption})}
+
+
+
+Initializes polynomials T1, T2 and their signs at x=1. 
+
+T1 = (D+\+D$\ast$), T2 = (D-\/\+D$\ast$)/(z-\/1), sigma1 = sgn(\+T1(1)), sigma2 = sgn(\+T2(1)) 
+\begin{DoxyParams}{Parameters}
+{\em T1} & -\/ first polynomial of the recurrence, F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type \\
+\hline
+{\em T2} & -\/ second polynomial of the recurrence, F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type \\
+\hline
+{\em sigma1} & -\/ sign of T1 at x=1, fmpq\+\_\+t type rational number \\
+\hline
+{\em sigma2} & -\/ sign of T2 at x=1, fmpq\+\_\+t type rational number \\
+\hline
+{\em D} & -\/ initial F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type rational polynomial \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+results are is stored T1, T2, sigma1, sigma2 
+\end{DoxyReturn}

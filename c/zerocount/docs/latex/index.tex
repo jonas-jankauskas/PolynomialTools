@@ -1,0 +1,36 @@
+\subsection*{What it is?}
+
+Zerocount is a library that implements zero-\/counting algorithms for polynomials in Q\mbox{[}x\mbox{]}. It is based on F\+L\+I\+NT library, v2.\+5.\+2, which you can get from\+:
+
+\href{http://www.flintlib.org/}{\texttt{ http\+://www.\+flintlib.\+org/}}
+
+At this early stage, only Bistritz algorithm for counting complex zeros of polynomials in Q\mbox{[}x\mbox{]} inside or on the unit disk D(0, 1) = \{z in C\+: $\vert$z$\vert$ $<$= 1\} is implemented.
+
+\subsection*{Example program}
+
+\textquotesingle{}Zerocount.\+exe\textquotesingle{} is an example program that takes from you P(x) and otputs the number of zeros inside and on the unit disk. Say, you have P(x) = 1 -\/2x$^\wedge$2 + x$^\wedge$3. Example input and output would be like\+: \begin{DoxyVerb}E:\my libraries\zerocount>zerocount
+#P(x):4 1 0 -2 1
+#Zeros inside/on the unit circle:
+1 1
+\end{DoxyVerb}
+
+
+Note how you enter P(x)\+: first you enter 4 -\/ the length of P(x), then you enter coefficients term-\/by term, from lowest to highest degree.
+
+\subsection*{Compiling and building example program}
+
+On Linux system with G\+CC, command line for \textquotesingle{}zerocount\textquotesingle{} example program is\+: \begin{DoxyVerb}$ gcc -o zerocount zerocount.c bistritz.c -lflint -lgmp
+\end{DoxyVerb}
+
+
+You might need replace -\/lgmp with -\/lmpfir if you chose to build F\+L\+I\+NT using M\+F\+P\+F\+IR and modify other options depending on your source/header file paths, the type (static vs dynamic) and the location of F\+L\+I\+NT libraries.
+
+\subsection*{How to use zerocount in your own code?}
+
+To use zerocount library in your C/\+C++ code, simply type \begin{DoxyVerb}#include "path_to/zerocount.h"
+\end{DoxyVerb}
+
+
+and call {\ttfamily \mbox{\hyperlink{bistritz_8c_abac08110815e4b854dc83dd15f914fd6}{Bistritz\+\_\+rule()}}}.
+
+See \mbox{\hyperlink{zerocount_8c}{zerocount.\+c}} file for a working example. 

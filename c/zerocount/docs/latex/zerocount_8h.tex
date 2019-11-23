@@ -1,0 +1,55 @@
+\hypertarget{zerocount_8h}{}\section{zerocount.\+h File Reference}
+\label{zerocount_8h}\index{zerocount.h@{zerocount.h}}
+
+
+Header file for the polynomial zero counting function prototypes.  
+
+
+{\ttfamily \#include \char`\"{}flint/fmpq\+\_\+poly.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{zerocount_8h_a7cf7eecbf072c498d1fe5544d884174e}{Bistritz\+\_\+rule}} (slong $\ast$, slong $\ast$, const fmpq\+\_\+poly\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Zero counting procedure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file for the polynomial zero counting function prototypes. 
+
+\begin{DoxyAuthor}{Author}
+Jonas Jankauskas 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 22, 2019 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyNote}{Note}
+Flint version 2.\+5.\+2
+\end{DoxyNote}
+Currently contains only the prototype of the Bistritz algorithm procedure, used to count the number of complex zeros of a polynomial P(x) of Q\mbox{[}x\mbox{]} inside and on the boundary of complex unit circle Disk(0, 1) = \{z\+: $\vert$z$\vert$ $<$= 1\}. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{zerocount_8h_a7cf7eecbf072c498d1fe5544d884174e}\label{zerocount_8h_a7cf7eecbf072c498d1fe5544d884174e}} 
+\index{zerocount.h@{zerocount.h}!Bistritz\_rule@{Bistritz\_rule}}
+\index{Bistritz\_rule@{Bistritz\_rule}!zerocount.h@{zerocount.h}}
+\subsubsection{\texorpdfstring{Bistritz\_rule()}{Bistritz\_rule()}}
+{\footnotesize\ttfamily void Bistritz\+\_\+rule (\begin{DoxyParamCaption}\item[{slong $\ast$}]{in\+\_\+uc,  }\item[{slong $\ast$}]{on\+\_\+uc,  }\item[{const fmpq\+\_\+poly\+\_\+t}]{poly }\end{DoxyParamCaption})}
+
+
+
+Zero counting procedure. 
+
+If poly $<$$>$ 0, returns no. of complex zeros of poly inside $\vert$z$\vert$ $<$ 1 and on $\vert$z$\vert$ = 1 through $\ast$in\+\_\+uc and $\ast$on\+\_\+uc. If poly == 0, stores the pair of numbers -\/1, 0. 
+\begin{DoxyParams}{Parameters}
+{\em poly} & -\/ F\+L\+I\+NT fmpq\+\_\+poly\+\_\+t type rational polynomial (must be initialized before the call) \\
+\hline
+{\em in\+\_\+uc} & -\/ pointer to F\+L\+I\+NT slong, no. of complex zeros inside unit circle $\vert$z$\vert$$<$1 \\
+\hline
+{\em on\+\_\+uc} & -\/ pointer to F\+L\+I\+NT slong, no. of complex zeros on unit circle $\vert$z$\vert$=1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+results are returned through in\+\_\+uc, on\+\_\+uc variables 
+\end{DoxyReturn}

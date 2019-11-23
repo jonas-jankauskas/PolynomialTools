@@ -1,0 +1,41 @@
+/**
+
+\mainpage Introduction
+
+## What it is?
+
+Zerocount is a library that implements zero-counting algorithms for polynomials in Q[x]. It is based on FLINT library, v2.5.2, which you can get from:
+
+http://www.flintlib.org/
+
+At this early stage, only Bistritz algorithm for counting complex zeros of polynomials in Q[x] inside or on the unit disk D(0, 1) = {z in C: |z| <= 1} is implemented.
+
+## Example program
+
+'Zerocount.exe' is an example program that takes from you P(x) and otputs the number of zeros inside and on the unit disk. Say, you have P(x) = 1 -2x^2 + x^3. Example input and output would be like:
+
+	E:\my libraries\zerocount>zerocount
+	#P(x):4 1 0 -2 1
+	#Zeros inside/on the unit circle:
+	1 1
+
+Note how you enter P(x): first you enter 4 - the length of P(x), then you enter coefficients term-by term, from lowest to highest degree.
+ 
+## Compiling and building example program
+
+On Linux system with GCC, command line for 'zerocount' example program is:
+
+	$ gcc -o zerocount zerocount.c bistritz.c -lflint -lgmp
+
+You might need replace -lgmp with -lmpfir if you chose to build FLINT using MFPFIR and modify other options depending on your source/header file paths, the type (static vs dynamic) and the location of FLINT libraries.
+
+## How to use zerocount in your own code?
+To use zerocount library in your C/C++ code, simply type
+
+	#include "path_to/zerocount.h"
+
+and call `Bistritz_rule()`.
+
+See zerocount.c file for a working example.
+
+*/  
