@@ -4,11 +4,11 @@ Slight arithmetical mistake in his Example 2, for the polynomial D_9 = [-2 7 -3 
 
   T_9:  2 -1 -6 -17 26 26 -17 -6 -1 2 (Bistritz mistakes the sign of 26)
   T_8:  6 -9 -9 6 0 6 -9 -9 6
-  T_7:  0 0 16 -24 -24 16 0 0			    (Bistritz mistakes the sign of 16)
+  T_7:  0 0 16 -24 -24 16 0 0	        (Bistritz mistakes the sign of 16)
   T_6:  0
-  T_5:  0 -16 24 24 -16
+> T_5:  0 -16 24 24 -16               (reinitialization)
   T_4:  0
-  T_3:  16 -24 -24 16
+> T_3:  16 -24 -24 16                 (reinitialization)
   T_2:  0
 > T_2: -24 96 -24                     (reinitialization of the sequence)
   T_1: 72 72
