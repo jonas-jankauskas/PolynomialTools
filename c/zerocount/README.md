@@ -9,6 +9,8 @@ Y. Bistritz, *Zero location of polynomials with respect to the unit-circle unham
 This library was written and applied to perform the large scale searches for the paper  
 K. G. Hare, J. Jankauskas, *On Newman and Littlewood polynomials with a prescribed number of zeros inside the unit disk*, Math. Comp. **90** (2021), 831--870, [arXiv e-print](https://arxiv.org/abs/1910.13994).
 
+The working example can be found in `zerocount.c`
+
 Author:         Jonas Jankauskas  
 Copyright:      2021, Jonas Jankauskas. All rights reserved.  
 Licence:        LGPLv3  
